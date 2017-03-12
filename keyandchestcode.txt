@@ -1,0 +1,19 @@
+//set the key and chest to 0 in obj_player
+///keys
+keydoor = 0;
+keychest = 0;
+
+/// collisions from key to player
+///get the key and destroy it
+obj_player.keychest += 1;
+instance_destroy();
+
+
+///collision from chest to key
+///if have the key destroy the chest and get keydoor
+if (obj_player.keychest = 1)
+{ 
+obj_player.keydoor += 1 
+instance_destroy()
+}
+
