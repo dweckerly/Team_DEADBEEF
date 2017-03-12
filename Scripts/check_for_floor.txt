@@ -1,0 +1,39 @@
+///check_for_floor(hspeed, vspeed)
+
+var hsp = argument0;
+var vsp = argument1;
+
+//set var at player's current position
+
+var cx = ((obj_player.x - 32) div CELL_WIDTH);
+var cy = (obj_player.y div CELL_HEIGHT);
+
+
+
+//check for floor in direction
+if(hsp > 0){
+    cx = ((obj_player.x - 32) div CELL_WIDTH);
+    if(obj_lvl.grid[# cx + 1, cy] != FLOOR){
+        obj_player.hspeed = 0;
+        wall_error();   
+    }
+} else if (hsp < 0){
+    cx = ((obj_player.x + 32) div CELL_WIDTH);
+    if(obj_lvl.grid[# cx - 1, cy] != FLOOR){
+        obj_player.hspeed = 0;  
+        wall_error(); 
+    }
+} else if(vsp > 0){
+    cy = ((obj_player.y - 32) div CELL_HEIGHT);
+    if(obj_lvl.grid[# cx, cy + 1] != FLOOR){
+        obj_player.vspeed = 0;   
+        wall_error();
+    }
+} else if(vsp < 0){
+    cy = ((obj_player.y + 32) div CELL_HEIGHT);
+    if(obj_lvl.grid[# cx, cy - 1] != FLOOR){
+        obj_player.vspeed = 0;
+        wall_error();   
+    }
+}
+
