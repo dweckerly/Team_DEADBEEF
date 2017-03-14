@@ -1,0 +1,20 @@
+So i was looking into possible path finding algorithms and this is what I came up with.
+
+this function could be a possible way to calculate the distance between the character and an enemy.
+
+function Distance(AINode A, AINode B)
+{
+    dx = abs(A.x - B.x)
+    dy = abs(A.y - B.y)
+    return (dx + dy);
+}
+
+I have been looking into A* for possible path finding algorithms and looking to see if anyone else has looked into the matter.
+
+
+This is some links to some interesting concepts about A* pathfinding and possible uses for it
+
+https://www.raywenderlich.com/4946/introduction-to-a-pathfinding
+https://aigamedev.com/open/tutorials/clearance-based-pathfinding/
+https://gamedevelopment.tutsplus.com/tutorials/how-to-speed-up-a-pathfinding-with-the-jump-point-search-algorithm--gamedev-5818
+
