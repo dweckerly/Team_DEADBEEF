@@ -18,3 +18,5 @@ https://www.raywenderlich.com/4946/introduction-to-a-pathfinding
 https://aigamedev.com/open/tutorials/clearance-based-pathfinding/
 https://gamedevelopment.tutsplus.com/tutorials/how-to-speed-up-a-pathfinding-with-the-jump-point-search-algorithm--gamedev-5818
 
+I found a link to some java code that implements A* bidirectional pathfinding algorithms
+http://stackoverflow.com/questions/3641741/bidirectional-a-a-star-search
