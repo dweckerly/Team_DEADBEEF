@@ -1,0 +1,48 @@
+Nicholas Lantier 
+CSCI413-A
+Report questions
+ 
+1. What language did your team use?
+ GML(game maker language)
+
+
+• What unit testing framework did your team use?
+Custom
+
+
+• What IDE's and what development OS's did your team use?
+GameMaker and windows 10
+
+
+• What you and your team learned from this experience so far.
+- I learned that there are a variety of patching algorithms and variations of each pathing algorithm. As a team we have learned how to work together and divide up the work according to our skill levels and amount of time we have to work on the project. 
+
+• How do you feel this will help you out in the industry?
+-I feel that working with 6 members on a team will help in the industry with having to communicate with everyone and make sure everyone knows what state the project is in and what their roles are is difficult. To be able to do this effectively will be a good asset in the industry.
+
+
+• Did this assignment help link the course material to real world application?
+-Yes the assignment gave me a hands on view of using the material. Especially using the good programming guidelines. The assignment is a decent representation of a section of game development but not a true representation of the giant contrast between the vastly growing number of fields a programmer could work in. 
+
+• What was the hardest and what was the easiest part of this?
+The easiest part was the breakdown of the assignment using Gantt and actually coding the piece given to me. The hardest part was keeping in touch with other members and having them keep up commination.
+
+
+• What types of maze randomizer algorithms did your team implement?
+
+
+• What type of shortest path algorithm did your team implement for the enemy?
+- the shortest path algorithm that I found to work best is the A* patching algorithm. 
+
+• Analysis of each of the 8 good practice guidelines for dependable programming
+o How you accomplished each of the applicable guidelines for the project
+▪ Go into detail on what aspects you considered and what implementation changes you made to ensure all 8 where followed
+If any are not applicable (such as the external timeout), state that they aren't applicable and state why.
+1.) Each object in the system is inside its own class.
+2.) Each appropriate input was checked to ensure that they had the expected outcome. Incorrect inputs were entered and shown that they failed as expected
+3.) …
+4.) …
+5.) …
+6.) I don’t think any arrays were used.
+7.) There were no external components called
+8.) All values were named according to what they referred to.
