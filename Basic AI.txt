@@ -1,0 +1,6 @@
+if distance_to_object(player)<=widthOfTheScreen{    //limit the sight of the enemies and prevent it run from across the map
+      if (collision_line(x,y,player.x,player.y,oBlock,true,true) = none) { //sets sigh between enemies and player, if have block put in none
+           direction=point_direction(x,y,player.x,player.y);       // enemy moves in the direction of the player
+           speed = slowerThanWalkingSpeed;             //speed of the enemies
+    }
+}
