@@ -1,0 +1,21 @@
+switch(agrument){
+    case("LEFT"):
+        global.moving = true;
+        obj_player.hspeed = -2;
+        break;
+    case("RIGHT"):
+        global.moving = true;
+        obj_player.hspeed = 2;
+        break;
+    case("UP"):
+        global.moving = true; 
+        obj_player.vspeed = -2;
+        break;
+    case("DOWN"):
+        global.moving = true;
+        obj_player.vspeed = 2;
+        break;
+    default:
+        invalid_command();
+        break;
+}
