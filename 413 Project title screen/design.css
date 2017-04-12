@@ -1,0 +1,26 @@
+/*
+	Joseph Kamrowski
+	4/6/17
+	Title Screen design
+*/
+
+body {
+	text-align: center;
+	background-color: rgb(146, 49, 101);
+}
+
+body h1 {
+	font-family: "Papyrus", fantasy;
+	font-size: 80px;
+}
+
+body h3 {
+	font-family: "Papyrus", fantasy;
+	font-size: 30px;
+}
+
+input[type=submit] {
+	font-family: "Papyrus", fantasy;
+	font-size: 24px;
+	background-color: rgb(146, 49, 101);
+}
