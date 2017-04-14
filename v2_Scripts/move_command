@@ -1,0 +1,46 @@
+///move_command(direction, distance)
+
+/*
+* @brief Triggered if the 'move' command is deciphered in an input string and acts accordingly
+* @param Direction to travel
+* @param Distance to travel
+*/
+
+var dir = argument0;
+var distance = argument1;
+
+if(distance > 9 || distance < 1){
+    invalid_command();
+} else {
+    switch(dir){
+        case("LEFT"):
+        case("WEST"):
+            global.moving = true;
+            obj_player.hspeed = -2;
+            obj_player.alarm[0] = room_speed * distance;
+            break;
+        case("RIGHT"):
+        case("EAST"):
+            global.moving = true;
+            obj_player.hspeed = 2;
+            obj_player.alarm[0] = room_speed * distance;
+            break;
+        case("BACK"):
+        case("UP"):
+        case("NORTH"):
+            global.moving = true; 
+            obj_player.vspeed = -2;
+            obj_player.alarm[0] = room_speed * distance;
+            break;
+        case("FORWARD"):
+        case("DOWN"):
+        case("SOUTH"):
+            global.moving = true;
+            obj_player.vspeed = 2;
+            obj_player.alarm[0] = room_speed * distance;
+            break;
+        default:
+            invalid_command();
+            break;
+    }
+}
