@@ -1,0 +1,22 @@
+//save_game
+
+//make sure the player exists
+if (!instance_exists(obj_player_stats)) exit;
+show_message ("Game saved");
+
+//create the save data
+var save_data = ds_map_create();
+
+//information want to save
+with(obj_player_stats){
+save_data[? "room"] = previous_room;
+save_data[? "x"] = 0;
+save_data[? "y"] = 0;
+save_data[? "level"] =level;
+
+//display message after save
+show message ("Game saved");
+
+//basic encryption after save the data
+var save_string = json_encode(save_data);
+ds_map_destroy(save_data);
