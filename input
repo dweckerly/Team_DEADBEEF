@@ -1,0 +1,22 @@
+if(string_count(chr(keyboard_key), enabled_keys) && string_length(chr(keyboard_key)) == 1){
+    blink = true;
+    alarm[0] = blink_speed;
+    switch(keyboard_lastchar){
+        case "#" :
+            txt += "\#"
+            break;
+        case vk_backspace:
+            txt = string_copy(txt, 0, string_length(txt) - 1);
+            break;
+        default:
+            txt += keyboard_lastchar;
+            break;
+    }
+}
+if(keyboard_check_pressed(vk_backspace)){
+    if(string_char_at(txt, string_length(txt)) == "#"){
+       txt = string_copy(txt, 0, string_length(txt) - 2); 
+    } else {  
+        txt = string_copy(txt, 0, string_length(txt) - 1);
+    }
+} 
