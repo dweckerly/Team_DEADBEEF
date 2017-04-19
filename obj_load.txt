@@ -1,0 +1,16 @@
+// create array define on string_explode script
+string_explode(string(global.StringData),',')
+// show the values loaded from the database
+global.loadedname = level[0];
+global.loadedip = level[1];
+global.loadednp = level[2];
+global.loadedop = level[3];
+global.loadedsp = level[4];
+
+// manipulate to show saving to the database
+global.name = level[0];
+global.ip = real(level[1]);
+global.np = real(level[2]);
+global.op = real(level[3]);
+global.sp = real(level[4]);
+instance_destroy();

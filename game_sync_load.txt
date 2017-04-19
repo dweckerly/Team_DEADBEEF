@@ -1,0 +1,2 @@
+//create data for load
+load = http_post_string("gameSync.php?","f=ld&n=" + string(global.name));
