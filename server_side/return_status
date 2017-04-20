@@ -1,0 +1,9 @@
+if (ds_map_find_value(async_load, "id") == get){
+    if (ds_map_find_value(async_load, "status") == 0) {
+        r_str = ds_map_find_value(async_load, "result");
+        show_message(r_str);
+    } else {
+        r_str = "null";
+        show_message(r_str);
+    }
+}
