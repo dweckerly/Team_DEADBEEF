@@ -1,0 +1,9 @@
+//scripts
+
+ini_open(agrument0);
+ini_write_real("Player Values", "x", global.player_x);
+ini_write_real("Player Values", "y", global.player_y);
+ini_close();
+if file_exists(file){
+show_message("Save Complete");
+}

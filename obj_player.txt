@@ -1,0 +1,8 @@
+//add in obj_player
+if keyboard_check_released(ord("S")){
+instance_create(0,0,obj_save);
+}
+
+if key_board_check_released(ord("L")){
+instance_create(0,0,obj_load);
+}

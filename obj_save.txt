@@ -1,9 +1,4 @@
-//GET RESULT AND STORE IT IN DATABASE
-if (ds_map_find_value(async_load, "id") == save)
-    {
-    if ds_map_find_value(async_load, "status") == 0
-       {
-       data2 = ds_map_find_value(async_load, "result");
-       alarm[0] = 10;
-       }
-    }
+//create => execute a piece of code
+
+file = get_save_filename("*.*","");
+scr_save(file);
