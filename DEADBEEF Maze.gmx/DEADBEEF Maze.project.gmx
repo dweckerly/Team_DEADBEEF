@@ -13,14 +13,16 @@
     <sprite>sprites\spr_marker</sprite>
     <sprite>sprites\spr_door</sprite>
     <sprite>sprites\spr_numbers</sprite>
-    <sprite>sprites\spr_enemy</sprite>
     <sprite>sprites\spr_smart_enemy</sprite>
+    <sprite>sprites\spr_ghost1_R</sprite>
+    <sprite>sprites\spr_ghost1_L</sprite>
   </sprites>
   <backgrounds name="background">
-    <background>background\bg_floor</background>
+    <background>background\bg_floor1</background>
     <background>background\bg_wall</background>
     <background>background\bg_walltiles</background>
     <background>background\bg_marker</background>
+    <background>background\bg_floor</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -56,13 +58,35 @@
       <script>scripts\randomly_place_object.gml</script>
       <script>scripts\check_proximity.gml</script>
       <script>scripts\debug_log.gml</script>
+      <script>scripts\save.gml</script>
+      <script>scripts\update_save.gml</script>
+    </scripts>
+    <scripts name="Replay Commands">
+      <script>scripts\replay_decipher.gml</script>
+      <script>scripts\ruse_command.gml</script>
+      <script>scripts\rgrab_command.gml</script>
+      <script>scripts\rmove_command.gml</script>
+      <script>scripts\ropen_command.gml</script>
+      <script>scripts\rdrop_marker.gml</script>
+      <script>scripts\replay_input.gml</script>
+      <script>scripts\replay_go.gml</script>
+    </scripts>
+    <scripts name="Text">
+      <script>scripts\shaky_color.gml</script>
+      <script>scripts\shaky_text.gml</script>
+      <script>scripts\really_shaky_text.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_main</font>
+    <font>fonts\fnt_main_small</font>
+    <font>fonts\fnt_block</font>
+    <font>fonts\fnt_DB</font>
+    <font>fonts\fnt_term</font>
   </fonts>
   <objects name="objects">
     <object>objects\obj_lvl</object>
+    <object>objects\obj_lvl_load</object>
     <object>objects\obj_player</object>
     <object>objects\obj_lighting</object>
     <object>objects\obj_textbox</object>
@@ -73,9 +97,21 @@
     <object>objects\obj_numbers</object>
     <object>objects\obj_enemy_rand</object>
     <object>objects\obj_smart_enemy</object>
+    <object>objects\obj_lvl_select</object>
+    <object>objects\obj_register</object>
+    <object>objects\obj_input_player</object>
+    <object>objects\obj_input_replay</object>
+    <object>objects\obj_login</object>
+    <object>objects\obj_particle1</object>
+    <object>objects\obj_particle2</object>
+    <object>objects\obj_network_monitor</object>
+    <object>objects\obj_replay</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_start</room>
     <room>rooms\rm_1</room>
+    <room>rooms\rm_2</room>
+    <room>rooms\rm_login</room>
   </rooms>
   <constants number="5">
     <constant name="CELL_WIDTH">64</constant>
