@@ -13,10 +13,19 @@ switch(object){
             if(check_for_object(obj_key, CELL_WIDTH)){
                 //set key global and draw to gui
                 global.has_key = true;
-                obj_textbox.error_txt = "You got a key!";
+                 bulletin_text("You got a key!");
                 obj_textbox.alarm[0] = room_speed * 2;
+                
+                //update save file
+                global.command = "2";
+                update_save(); 
+                
+                if(global.connect){
+                    //update database
+                    http_get("https://teamdeadbeef.000webhostapp.com/update.php?info=%20+" + string(global.command) + "&save_id=" + string(global.saveid));
+                } 
             } else {
-                obj_textbox.error_txt = "Error!";
+                bulletin_text("Error!");
                 obj_textbox.alarm[0] = room_speed * 2;
             }
         }
@@ -25,4 +34,3 @@ switch(object){
         invalid_command();
         break;
 }
-

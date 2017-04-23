@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>///instantiations
-randomize();
 image_speed = 0;
 
 var index = irandom_range(0, 8);

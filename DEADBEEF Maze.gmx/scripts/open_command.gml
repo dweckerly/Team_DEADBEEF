@@ -10,7 +10,7 @@ var object = argument0;
 switch(object){
     case("CHEST"):
         if(check_for_object(obj_chest, CELL_WIDTH)){
-            bulletin_text("Looks like you can 'use' a#combination.");
+            bulletin_text("Looks like you can 'use' a combination.");
         } else {
             bulletin_text("Thoracotomy?");
         }
@@ -20,8 +20,17 @@ switch(object){
             if(global.door_unlocked){
                 if(global.opened_chest){
                     bulletin_text("YOU WIN!!!");
+                    
+                    //update save
+                    global.command = "3";
+                    update_save(); 
+                    
+                     if(global.connect){
+                        //update database
+                        http_get("https://teamdeadbeef.000webhostapp.com/update.php?info=%20+" + string(global.command) + "&save_id=" + string(global.saveid));
+                     } 
                 } else {
-                    bulletin_text("There's still a chest to#open...");
+                    bulletin_text("There's still a chest to open...");
                 }
             } else {
                 bulletin_text("Hrm, looks locked.");

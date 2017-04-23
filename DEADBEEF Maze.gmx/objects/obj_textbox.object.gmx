@@ -27,17 +27,12 @@
             <kind>1</kind>
             <string>///instantiations {create event}
 
-//set maximum length of strings, input string and temp string for hotkey
-max_length = 17;
-txt = "";
-temp_txt = "";
-
-draw_set_font(fnt_main);
-draw_set_colour(c_white);
-
-can_type = true;
-
 error_txt = "";
+log = "log:"
+
+x_txt = 60;
+y_txt = 60;
+
 </string>
           </argument>
         </arguments>
@@ -84,61 +79,12 @@ error_txt = "";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(spr_textbox, 0, 52, 600);
-draw_text(124, 644, txt);
-draw_text(60, 60, error_txt);
+            <string>draw_set_font(fnt_main_small)
+shaky_color();
+draw_text(x_txt, y_txt, log);
+draw_text(x_txt + string_width(log) + 4, y_txt, error_txt);
 if(global.has_key){
     draw_sprite(spr_key, 0, 800, 60);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Input controller
-
-//set to where player can only type while not moving
-if(global.moving){
-    can_type = false;
-} else {
-    can_type = true;
-}
-
-if(can_type){       
-    if(string_length(keyboard_string) &lt; max_length){
-        txt = keyboard_string;
-    } else {
-        keyboard_string = txt;
-    }
-    
-    if(keyboard_check_pressed(vk_enter)){
-        input_decipher(txt);
-        temp_text = txt;
-        keyboard_string = "";
-        txt = "";
-   }
-    
-    if(keyboard_check(vk_up)){
-        keyboard_string = temp_txt
-        txt = temp_txt;
-    }
 }
 </string>
           </argument>

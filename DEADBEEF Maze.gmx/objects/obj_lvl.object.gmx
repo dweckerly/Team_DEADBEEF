@@ -26,12 +26,22 @@
           <argument>
             <kind>1</kind>
             <string>///Create level
+if(global.new){
+    randomize();    
+} else {
+    opensave = file_text_open_read("save/save" + '.tdb');
+    seed = string(file_text_read_string(opensave));
+    file_text_close(opensave);
+    random_set_seed(seed);
+}
 
+show_debug_message(random_get_seed());
 global.logfile = file_text_open_write("logs/Log_"+ string(current_month) + "-" + string(current_day) + "-" + string(current_year) + "_" + string(current_hour) + "-" + string(current_minute) + "-" + string(current_second) + '.txt');
 
 found_floor = false;
 
-//stesp to check for object proximity
+
+//steps to check for object proximity
 var steps = 4;
 
 //resize the room
@@ -50,9 +60,6 @@ grid = ds_grid_create(width, height);
 
 //fill the grid with void
 ds_grid_set_region(grid, 0, 0, (width - 1), (height - 1), VOID);
-
-//Random gen
-randomize();
 
 var cx = width div 2;
 var cy = height div 2;
@@ -127,13 +134,85 @@ for(var yy = 0; yy &lt; height; yy++){
         if(grid[# xx, yy] == FLOOR){
             tile_add(bg_floor, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx * CELL_WIDTH, yy * CELL_HEIGHT, 0);
         }    
-        //draw wall
+        /*//draw wall
         if(grid[# xx, yy] == WALL){
             //mp_grid_add_cell(grid_path, xx, yy);
             tile_add(bg_wall, 0, 0, CELL_WIDTH, CELL_HEIGHT, xx * CELL_WIDTH, yy * CELL_HEIGHT, 0);
-        }  
+        }  */
     }
 }
+
+var tile_width = CELL_WIDTH/2;
+var tile_height = CELL_HEIGHT/2;
+
+//add tiles   ***ALL THE 2's ARE DUE TO 32x32 WALL TILES ON 64x64 FLOOR***
+for(var yy = 0; yy &lt; height * 2; yy++){
+    for(var xx = 0; xx &lt; width * 2; xx++){
+        if(grid[# xx div 2, yy div 2] == FLOOR){
+            //get tile's x and y
+            var tile_x = xx * tile_width;
+            var tile_y = yy * tile_height;
+            
+            var right = grid[# (xx + 1) div 2, yy div 2] != FLOOR; 
+            var left = grid[# (xx - 1) div 2, yy div 2] != FLOOR;
+            var top = grid[# xx div 2, (yy - 1) div 2] != FLOOR;
+            var bottom = grid[# xx div 2, (yy + 1) div 2] != FLOOR;
+            
+            var top_right = grid[# (xx + 1) div 2, (yy - 1) div 2] != FLOOR;
+            var top_left = grid[# (xx - 1) div 2, (yy - 1) div 2] != FLOOR;
+            var bottom_right = grid[# (xx + 1) div 2, (yy + 1) div 2] != FLOOR;
+            var bottom_left = grid[# (xx - 1) div 2, (yy + 1) div 2] != FLOOR;
+            
+            if(right){
+                if(bottom){
+                    tile_add(bg_walltiles, tile_width * 4, tile_height * 1, tile_width, tile_height, tile_x + tile_width, tile_y, -tile_y);
+                } else if (top){
+                    if(top_right){
+                        tile_add(bg_walltiles, tile_width * 4, tile_height * 0, tile_width, tile_height, tile_x + tile_width, tile_y - tile_height, -tile_y);
+                    } else {
+                        tile_add(bg_walltiles, tile_width * 3, tile_height * 0, tile_width, tile_height, tile_x, tile_y - tile_height, -tile_y);
+                    }
+                    tile_add(bg_walltiles, tile_width * 0, tile_height * 1, tile_width, tile_height, tile_x + tile_width, tile_y, -tile_y);
+                } else {
+                    tile_add(bg_walltiles, tile_width * 0, tile_height * 1, tile_width, tile_height, tile_x + tile_width, tile_y, -tile_y);
+                }
+            }
+            if(left){
+                if(bottom){
+                    tile_add(bg_walltiles, tile_width * 3, tile_height * 1, tile_width, tile_height, tile_x - tile_width, tile_y, -tile_y);
+                } else if (top){
+                    if(top_left){
+                        tile_add(bg_walltiles, tile_width * 3, tile_height * 0, tile_width, tile_height, tile_x - tile_width, tile_y - tile_height, -tile_y);
+                    } else {
+                        tile_add(bg_walltiles, tile_width * 4, tile_height * 0, tile_width, tile_height, tile_x, tile_y - tile_height, -tile_y);
+                    }
+                    tile_add(bg_walltiles, tile_width * 2, tile_height * 1, tile_width, tile_height, tile_x - tile_width, tile_y, -tile_y);
+                } else {
+                    tile_add(bg_walltiles, tile_width * 2, tile_height * 1, tile_width, tile_height, tile_x - tile_width, tile_y, -tile_y);
+                }
+            }
+            
+            if(top){
+                if(!top_right){
+                    tile_add(bg_walltiles, tile_width * 2, tile_height * 2, tile_width, tile_height, tile_x, tile_y - tile_height, -tile_y);
+                } else if(!top_left){
+                    tile_add(bg_walltiles, tile_width * 0, tile_height * 2, tile_width, tile_height, tile_x, tile_y - tile_height, -tile_y);
+                } else {
+                    tile_add(bg_walltiles, tile_width * 1, tile_height * 2, tile_width, tile_height, tile_x, tile_y - tile_height, -tile_y);
+                }
+            }
+            if(bottom){
+                if(!bottom_right){
+                    tile_add(bg_walltiles, tile_width * 2, tile_height * 0, tile_width, tile_height, tile_x, tile_y, -tile_y);
+                } else if(!bottom_left){
+                    tile_add(bg_walltiles, tile_width * 0, tile_height * 0, tile_width, tile_height, tile_x, tile_y, -tile_y);
+                } else {
+                    tile_add(bg_walltiles, tile_width * 1, tile_height * 0, tile_width, tile_height, tile_x, tile_y, -tile_y);
+                }
+            }
+        }
+    }
+} 
 
 //create the shadow and light around the player
 instance_create(width, height, obj_lighting);
@@ -142,16 +221,17 @@ instance_create(width, height, obj_lighting);
 randomly_place_object(grid, obj_key, FLOOR);
 randomly_place_object(grid, obj_chest, FLOOR);
 
-randomly_place_object(grid, obj_enemy_rand, FLOOR);
-while(check_proximity(obj_player, obj_enemy_rand, steps)){
-    randomly_place_object(grid, obj_enemy_rand, FLOOR);   
+if(global.new){
+    randomly_place_object(grid, obj_enemy_rand, FLOOR);
+    while(check_proximity(obj_player, obj_enemy_rand, steps)){
+        randomly_place_object(grid, obj_enemy_rand, FLOOR);   
+    }
+    
+    randomly_place_object(grid, obj_smart_enemy, FLOOR);
+    while(check_proximity(obj_player, obj_smart_enemy, steps)){
+        randomly_place_object(grid, obj_smart_enemy, FLOOR);   
+    }
 }
-
-randomly_place_object(grid, obj_smart_enemy, FLOOR);
-while(check_proximity(obj_player, obj_smart_enemy, steps)){
-    randomly_place_object(grid, obj_smart_enemy, FLOOR);   
-}
-
 
 randomly_place_object(grid, obj_door, WALL);
 
@@ -160,6 +240,53 @@ randomly_place_object(grid, obj_numbers, WALL);
 randomly_place_object(grid, obj_numbers, WALL);
 
 debug_log("Room successfully created!");
+
+if(global.new){
+    var seed = random_get_seed();
+    savefile = file_text_open_write("save/save" + '.tdb');
+    save(seed, savefile);
+    if(os_is_network_connected()){
+        get = http_get("https://teamdeabbeef.000webhostapp.com/save_info.php?user_name=" + string(global.username) + "&amp;password=" + string(global.password) + "&amp;info=" + string(seed));
+    }
+}
+//show_debug_message(seed);
+show_debug_message(random_get_seed());
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="62">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///for get request
+
+if ds_map_find_value(async_load, "id") == get
+   {
+   if ds_map_find_value(async_load, "status") == 0
+      {
+      r_str = ds_map_find_value(async_load, "result");
+      show_debug_message(r_str);
+      }
+   else
+      {
+      r_str = "null";
+      }
+   }
 </string>
           </argument>
         </arguments>
@@ -182,9 +309,7 @@ debug_log("Room successfully created!");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ds_grid_destroy(grid);
-//mp_grid_destroy(grid_path);
-room_restart();
+            <string>view_enabled = !view_enabled;
 </string>
           </argument>
         </arguments>

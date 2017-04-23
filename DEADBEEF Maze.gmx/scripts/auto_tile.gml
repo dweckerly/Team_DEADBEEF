@@ -1,7 +1,7 @@
 ///auto_tile script pulled from original obj_lvl
 
 /*
-* @brief Script for autotiling the gird (not used in this version of the game)
+* @brief Script for autotiling the grid (not used in this version of the game)
 */
 
 //get tile size

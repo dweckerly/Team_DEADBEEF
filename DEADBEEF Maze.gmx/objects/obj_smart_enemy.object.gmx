@@ -88,8 +88,6 @@ disabled_count = 0;
             <kind>1</kind>
             <string>///set to move only if player is moving
 
-
-
 if(global.moving){
     if(set_alarm){
         hspeed = 0;
@@ -141,7 +139,7 @@ if(global.moving){
         
         */
         
-        enemy_move(obj_smart_enemy, greedy(obj_smart_enemy, obj_player, obj_lvl.grid));
+        enemy_move(obj_smart_enemy, aStar(obj_smart_enemy, obj_player, obj_lvl.grid));
         alarm[0] = room_speed;
         set_alarm = false;
     } 

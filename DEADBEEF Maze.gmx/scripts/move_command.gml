@@ -9,28 +9,81 @@
 var dir = argument0;
 var distance = argument1;
 
-switch(dir){
-    case("LEFT"):
-        global.moving = true;
-        obj_player.hspeed = -2;
-        obj_player.alarm[0] = room_speed * distance;
-        break;
-    case("RIGHT"):
-        global.moving = true;
-        obj_player.hspeed = 2;
-        obj_player.alarm[0] = room_speed * distance;
-        break;
-    case("UP"):
-        global.moving = true; 
-        obj_player.vspeed = -2;
-        obj_player.alarm[0] = room_speed * distance;
-        break;
-    case("DOWN"):
-        global.moving = true;
-        obj_player.vspeed = 2;
-        obj_player.alarm[0] = room_speed * distance;
-        break;
-    default:
-        invalid_command();
-        break;
+var spd = 2;
+var dist = room_speed * distance;
+
+if(distance > 9 || distance < 1){
+    invalid_command();
+} else {
+    switch(dir){
+        case("LEFT"):
+        case("WEST"):
+            global.moving = true;
+            obj_player.hspeed = -spd;
+            obj_player.alarm[0] = dist;
+            
+            //update save
+            global.command = "11" + string(distance);
+            update_save();
+            
+            if(global.connect){
+                //update database
+                http_get("https://teamdeadbeef.000webhostapp.com/update.php?info=%20+" + string(global.command) + "&save_id=" + string(global.saveid));
+                show_debug_message(global.saveid);
+            } 
+            break;
+        case("RIGHT"):
+        case("EAST"):
+            global.moving = true;
+            obj_player.hspeed = spd;
+            obj_player.alarm[0] = dist;
+            
+            //update save
+            global.command = "12" + string(distance);
+            update_save(); 
+            
+            if(global.connect){
+                //update database
+                http_get("https://teamdeadbeef.000webhostapp.com/update.php?info=%20+" + string(global.command) + "&save_id=" + string(global.saveid));
+                show_debug_message(global.saveid);
+            } 
+            break;
+        case("BACK"):
+        case("UP"):
+        case("NORTH"):
+            global.moving = true; 
+            obj_player.vspeed = -spd;
+            obj_player.alarm[0] = dist;
+            
+            //update save
+            global.command = "13" + string(distance);
+            update_save(); 
+            
+            if(global.connect){
+                //update database
+                http_get("https://teamdeadbeef.000webhostapp.com/update.php?info=%20+" + string(global.command) + "&save_id=" + string(global.saveid));
+                show_debug_message(global.saveid);
+            } 
+            break;
+        case("FORWARD"):
+        case("DOWN"):
+        case("SOUTH"):
+            global.moving = true;
+            obj_player.vspeed = spd;
+            obj_player.alarm[0] = dist;
+            
+            //update save
+            global.command = "14" + string(distance);
+            update_save(); 
+            
+            if(global.connect){
+                //update database
+                http_get("https://teamdeadbeef.000webhostapp.com/update.php?info=%20+" + string(global.command) + "&save_id=" + string(global.saveid));
+                show_debug_message(global.saveid);
+            } 
+            break;
+        default:
+            invalid_command();
+            break;
+    }
 }

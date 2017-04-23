@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>outer_radius = 120;
 inner_radius = 80;
+
+fast = false;
+slow = false;
 </string>
           </argument>
         </arguments>
@@ -50,7 +53,8 @@ inner_radius = 80;
           <argument>
             <kind>1</kind>
             <string>global.moving = false;
-obj_textbox.can_type = true;
+obj_input_player.type = true;
+obj_input_player.txt = "";
 </string>
           </argument>
         </arguments>
@@ -97,28 +101,11 @@ obj_textbox.can_type = true;
           <argument>
             <kind>1</kind>
             <string>
-//code to enable/disable view
-if(!view_enabled){
-    if(keyboard_check_released(vk_control)){
-        view_visible[0] = true;
-        view_enabled = true;
-    }
-} else if(view_enabled){
-    if(keyboard_check_released(vk_control)){
-        view_visible[0] = false;
-        view_enabled = false;
-    }
-}
-//end enable/disable view
-
-
 if(!global.moving){
     hspeed = 0;
     vspeed = 0;
 }
-
 check_for_floor();
-
 </string>
           </argument>
         </arguments>
