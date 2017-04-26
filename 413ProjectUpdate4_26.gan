@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2017-04-02" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.8.1" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2017-02-12" view-index="0" gantt-divider-location="353" resource-divider-location="300" version="2.8.1" locale="en_US">
     <description/>
-    <view zooming-state="default:4" id="gantt-chart">
+    <view zooming-state="default:5" id="gantt-chart">
         <field id="tpd3" name="Name" width="190" order="0"/>
         <field id="tpd4" name="Begin date" width="72" order="1"/>
         <field id="tpd5" name="End date" width="72" order="2"/>
     </view>
     <view id="resource-table">
-        <field id="0" name="Name" width="210" order="0"/>
-        <field id="1" name="Default role" width="86" order="1"/>
+        <field id="0" name="Name" width="199" order="0"/>
+        <field id="1" name="Default role" width="82" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -37,7 +37,7 @@
             <task id="34" name="Create character object" color="#8cb6ce" meeting="false" start="2017-02-13" duration="1" complete="0" expand="true">
                 <depend id="3" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="1" name="Implement movement" meeting="false" start="2017-02-14" duration="4" complete="0" expand="true">
+            <task id="1" name="Implement movement" color="#000000" meeting="false" start="2017-02-14" duration="4" complete="0" expand="true">
                 <task id="3" name="Implement left movement" meeting="false" start="2017-02-14" duration="1" complete="0" expand="true"/>
                 <task id="4" name="implement right movement" color="#8cb6ce" meeting="false" start="2017-02-15" duration="1" complete="0" expand="true"/>
                 <task id="5" name="implement up movement" color="#8cb6ce" meeting="false" start="2017-02-16" duration="1" complete="0" expand="true"/>
@@ -77,11 +77,11 @@
                 </task>
                 <task id="30" name="add error message trying to open door without the key" color="#8cb6ce" meeting="false" start="2017-03-02" duration="1" complete="0" expand="true"/>
             </task>
-            <task id="22" name="add marker object" meeting="false" start="2017-02-23" duration="3" complete="0" expand="true">
+            <task id="22" name="add marker object" color="#000000" meeting="false" start="2017-02-23" duration="3" complete="0" expand="true">
                 <task id="23" name="add ability to place marker object" color="#8cb6ce" meeting="false" start="2017-02-23" duration="3" complete="0" expand="true"/>
             </task>
         </task>
-        <task id="35" name="Implement unti testing" color="#8cb6ce" meeting="false" start="2017-03-02" duration="5" complete="0" expand="true">
+        <task id="35" name="Implement unit testing" color="#8cb6ce" meeting="false" start="2017-03-02" duration="5" complete="0" expand="true">
             <task id="38" name="Test for movement" color="#8cb6ce" meeting="false" start="2017-03-02" duration="2" complete="0" expand="true"/>
             <task id="40" name="test for key" color="#8cb6ce" meeting="false" start="2017-03-03" duration="2" complete="0" expand="true"/>
             <task id="42" name="test for chest" color="#8cb6ce" meeting="false" start="2017-03-06" duration="2" complete="0" expand="true"/>
@@ -90,7 +90,7 @@
         <task id="45" name="Implement enemies" color="#8cb6ce" meeting="false" start="2017-03-09" duration="4" complete="0" expand="true"/>
         <task id="46" name="Implement a log file" color="#8cb6ce" meeting="false" start="2017-03-14" duration="3" complete="0" expand="true"/>
         <task id="47" name="Review program for good programming guidlines" color="#8cb6ce" meeting="false" start="2017-03-15" duration="4" complete="0" expand="true"/>
-        <task id="51" name="bug fixing" meeting="false" start="2017-03-22" duration="3" complete="0" expand="true">
+        <task id="51" name="bug fixing" color="#000000" meeting="false" start="2017-03-22" duration="3" complete="0" expand="true">
             <task id="81" name="Ctrl issue" color="#8cb6ce" meeting="false" start="2017-03-22" duration="1" complete="0" expand="true"/>
             <task id="84" name="Space the command issue" meeting="false" start="2017-03-23" duration="1" complete="0" expand="true"/>
             <task id="86" name="Shift bug" color="#8cb6ce" meeting="false" start="2017-03-23" duration="1" complete="0" expand="true"/>
@@ -136,9 +136,11 @@
             </task>
             <task id="113" name="add collision" color="#8cb6ce" meeting="false" start="2017-04-25" duration="1" complete="0" expand="true"/>
             <task id="124" name="Music addition" color="#8cb6ce" meeting="false" start="2017-04-24" duration="1" complete="0" expand="true"/>
+            <task id="152" name="Add new sprites and player backround" color="#8cb6ce" meeting="false" start="2017-04-24" duration="1" complete="0" expand="true"/>
         </task>
         <task id="134" name="Voice overs" color="#8cb6ce" meeting="false" start="2017-04-14" duration="2" complete="0" expand="true"/>
         <task id="140" name="MiniMap" color="#8cb6ce" meeting="false" start="2017-04-06" duration="3" complete="0" expand="true"/>
+        <task id="149" name="Add in music for maze" color="#8cb6ce" meeting="false" start="2017-04-21" duration="2" complete="0" expand="true"/>
     </tasks>
     <resources>
         <resource id="0" name="Anthony" function="Default:0" contacts="" phone=""/>
@@ -156,6 +158,8 @@
         <allocation task-id="102" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="105" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="113" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="22" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="1" resource-id="0" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="59" resource-id="1" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
         <allocation task-id="60" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="61" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
@@ -164,20 +168,30 @@
         <allocation task-id="65" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="79" resource-id="1" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="124" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="149" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="152" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="7" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="35" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="51" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="1" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="67" resource-id="2" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
         <allocation task-id="79" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="58" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="134" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="140" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="35" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="69" resource-id="3" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
         <allocation task-id="79" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
         <allocation task-id="58" resource-id="3" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="14" resource-id="3" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="66" resource-id="4" function="SoftwareDevelopment:2" responsible="true" load="100.0"/>
         <allocation task-id="79" resource-id="4" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="18" resource-id="4" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="71" resource-id="5" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="74" resource-id="5" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="73" resource-id="5" function="Default:0" responsible="true" load="100.0"/>
         <allocation task-id="79" resource-id="5" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="11" resource-id="5" function="Default:0" responsible="true" load="100.0"/>
     </allocations>
     <vacations/>
     <previous/>
