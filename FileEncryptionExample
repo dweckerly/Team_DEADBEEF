@@ -29,9 +29,23 @@
                 return 0;
         }
 
-        /* get the key from the user to create cipher */
-        printf("Enter the key to create cipher text:");
-        scanf("%d", &key);
+        /* get the key from the Nic's creations */
+        if (usernametag = 1) {
+                key = usernametag * (username + 42);
+                key = key % 6;
+                key = key * 7;
+                key = key % 26;
+        }
+        else
+        {
+                key = usernametag * (username - 24);
+                key = key % 5;
+                key = key * 7;
+                key = key^3 * 6;
+                key = key / 42;
+                key = key % 26;
+         }
+
  
         /* converting plain text to cipher text */
         while ((ch = fgetc(fp1)) != EOF) {
