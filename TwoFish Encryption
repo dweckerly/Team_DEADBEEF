@@ -30,7 +30,7 @@ public class Main
       // initialize the cipher with the key
       cipher.init(Cipher.ENCRYPT_MODE, sk);
  
-      // enctypt!
+      // encrypt!
       byte[] encrypted = cipher.doFinal(toEncrypt.getBytes());
  
       return encrypted;
